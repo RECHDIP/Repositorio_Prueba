@@ -36,6 +36,11 @@ void ejecutar_proceso()
         ejecutar_en_segundo_plano(comando);
     }
 }
+void listado_procesos()
+{
+    printf("Hola listado_procesos");
+}
+
 
 int main()
 {
