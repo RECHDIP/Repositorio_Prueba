@@ -23,6 +23,20 @@ void ejecutar_en_segundo_plano(const char *comando) {
     }
 } 
 
+
+void ejecutar_proceso()
+{
+    char comando[256];
+    printf("Porfavor escriba los comandos que quiera ejecutar , si quiere salir de esta operacion escriba exit:\n");
+    while (1) {
+        printf("> ");
+        if (!fgets(comando, sizeof(comando), stdin)) break;
+        comando[strcspn(comando, "\n")] = '\0';  
+        if (strcmp(comando, "exit") == 0) break;
+        ejecutar_en_segundo_plano(comando);
+    }
+}
+
 int main()
 {
 
