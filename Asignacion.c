@@ -13,6 +13,16 @@ void Kill_bill();
 void ejecutar_en_segundo_plano(const char *comando);
 
 
+void ejecutar_en_segundo_plano(const char *comando) {
+    pid_t pid = fork(); 
+    if (pid == 0) {
+        char *args[] = {"/bin/sh", "-c", (char *)comando, NULL};
+        execvp(args[0], args);
+        perror("Hubo un error al ejecutar el comando!");
+        _exit(1);
+    }
+} 
+
 int main()
 {
 
